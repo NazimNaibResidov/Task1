@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Exam>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Student Surame</th>
+            <th scope="col">Lesson Name</th>
+            <th scope="col">Rate</th>
+            <td scope="col">Date</td>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in Model)
+        {<tr>
+    <th scope="row">@item.Id</th>
+    <td>@item.Student.Name</td>
+    <td>@item.Student.Surname</td>
+        <td>@item.Lesson.Name</td>
+        <td>@item.Rate</td>
+        <td>@item.ExamDate.ToLongDateString()</td>
+</tr>
+
+        }
+    </tbody>
+</table>
+<a class="btn btn-success" asp-action="Register" asp-controller="Lessons">Register</a>
+
